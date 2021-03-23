@@ -1,0 +1,66 @@
+body {
+    background-color: darkgray;
+}
+
+.container {
+    padding-top: 5rem;
+    width: 800px;
+    margin: 0 auto;
+}
+
+.card {
+    border-radius: 6px;
+    background-color: #fff;
+    padding: 1rem;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .2);
+}
+
+.btn {
+    color: #42b983;
+    position: relative;
+    border-radius: 99px;
+    border: 1px solid #42b983;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0.5rem 1.5rem;
+    font-weight: 700;
+    outline: none;
+    background: #fff;
+    transition: all 0.2s;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.btn.primary {
+    background: #42b983;
+    color: #fff;
+}
+
+.btn:active {
+    box-shadow: inset 2px 2px 2px rgba(0, 0, 0, .2);
+}
+
+.btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+input[type=File]{
+    display: none;
+}
+
+.preview {
+    display: flex;
+    flex-wrap: wrap;
+    padding: .5rem;
+}
+
+.preview-img {
+    margin-bottom: .5rem;
+    margin-right: .5rem;
+}
+
+.preview-img img {
+    width: 100px;
+    height: auto;
+}
