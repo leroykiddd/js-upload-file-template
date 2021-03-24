@@ -58,9 +58,33 @@ input[type=File]{
 .preview-img {
     margin-bottom: .5rem;
     margin-right: .5rem;
+    position: relative;
+}
+
+.preview-img:hover .preview-remove {
+    opacity: 1;
 }
 
 .preview-img img {
-    width: 100px;
+    width: 120px;
     height: auto;
+}
+
+.preview-remove {
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 2px;
+    margin-right: 2px;
+    font-weight: bold;
+    background: rgba(255, 255, 255, .4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: opacity .2s;
 }

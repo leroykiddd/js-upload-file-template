@@ -1,6 +1,7 @@
 console.log('upload.js');
 
 export function upload(selector, options) {
+    let files = []
     const input = document.querySelector(selector)
     const preview = document.createElement('div')
     preview.classList.add('preview')
@@ -29,14 +30,15 @@ export function upload(selector, options) {
         };
         
         input.insertAdjacentElement('afterend', preview)
-        const files = Array.from(event.target.files);
+        files = Array.from(event.target.files);
+        preview.innerHTML = '' // Обнуление
         files.forEach(file => {
             const reader = new FileReader()
             
             reader.onload = ev => {
-                console.log(ev.target.result);
                 preview.insertAdjacentHTML('afterbegin', `
                     <div class="preview-img">
+                    <div class="preview-remove" data-name="${file.name}">&times</div>
                         <img src="${ev.target.result}"/>
                     </div>
                 `)
@@ -47,6 +49,19 @@ export function upload(selector, options) {
         
     }
 
+    const removeHandlet = event => {
+        if (!event.target.dataset.name) {
+            return
+        }
+        const name = event.target.dataset.name
+        console.log(name);
+        files = files.filter(file => {file.name !== name})
+        const  block = preview.querySelector(`[data-name="${name}"]`)
+            .closest('.preview-img')
+        block.remove()
+    }
+
     open_button.addEventListener('click', triggerInput)
     input.addEventListener('change', changeHandler)
+    preview.addEventListener('click', removeHandlet)
 }
